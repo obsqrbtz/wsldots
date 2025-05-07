@@ -7,7 +7,7 @@ git submodule init
 git submodule update --recursive
 
 sudo pacman -Sy --noconfirm
-sudo pacman -S --noconfirm stow nodejs npm dotnet-sdk unzip zsh openssh gcc cmake ninja clang neovim zoxide lsd bat fzf fd ripgrep ranger wget git-delta mesa glu libxkbcommon fontconfig freetype2
+sudo pacman -S --noconfirm stow nodejs npm dotnet-sdk unzip zsh openssh gcc cmake ninja clang neovim zoxide lsd bat fzf fd ripgrep ranger wget git-delta mesa glu libxkbcommon fontconfig freetype2 ttf-dejavu
 sudo localectl set-locale LANG=en_US.UTF-8
 
 chsh -s /usr/bin/zsh "$(whoami)"
