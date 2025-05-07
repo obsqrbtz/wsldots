@@ -7,7 +7,7 @@ git submodule init
 git submodule update --recursive
 
 sudo pacman -Sy --noconfirm
-sudo pacman -S --noconfirm stow zsh openssh gcc cmake clang neovim zoxide lsd bat fzf fd ripgrep ranger wget git-delta
+sudo pacman -S --noconfirm stow unzip zsh openssh gcc cmake clang neovim zoxide lsd bat fzf fd ripgrep ranger wget git-delta
 
 chsh -s /usr/bin/zsh $(whoami)
 
