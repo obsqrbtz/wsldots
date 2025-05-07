@@ -7,6 +7,7 @@
 ```bash
 git clone https://github.com/obsqrbtz/wsldots.git ~/dotfiles
 cd ~/dotfiles
+```
 
 ### 2. Modify credentials in `.gitconfig` if needed
 
