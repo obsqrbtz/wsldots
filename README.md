@@ -2,25 +2,43 @@
 
 ## Setup
 
-### 1. Get the repo
+### 1. Install the distro
+
+```powershell
+wsl --install archlinux
+wsl -d archlinux
+```
+
+### 2. Create user
+
+In WSL:
+
+```bash
+pacman -Syy
+pacman -S sudo neovim base-devel git
+useradd -m -G wheel -s /bin/bash username
+```
+
+Open `/etc/sudoers` and uncomment `%wheel   ALL=(ALL)   ALL` in this file. Then create password `passwd username` and login `su - username`.
+
+### 2. Get the repo
 
 ```bash
 git clone https://github.com/obsqrbtz/wsldots.git ~/dotfiles
 cd ~/dotfiles
 ```
 
-### 2. Modify credentials in `.gitconfig` if needed
+### 3. Modify credentials in `.gitconfig` if needed
 
-### 3. Place ssh keys to `~/.ssh` if set in `.gitconfig`
+### 4. Place ssh keys to `~/.ssh` if set in `.gitconfig`
 
-### 4. Run install script
+### 5. Run install script
 
 ```
-chmod+x ./setup.sh
 ./setup.sh
 ```
 
-### 5. Setup default user
+### 6. Setup default user
 
 In `/etc/wsl.conf`:
 
@@ -29,7 +47,7 @@ In `/etc/wsl.conf`:
 default=username
 ```
 
-### 5. Enable WSLg
+### 7. Enable WSLg
 
 #### On Windows create `~/.wslconfig`:
 
