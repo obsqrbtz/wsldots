@@ -25,3 +25,5 @@ alias yay-clean="yay -Scc"
 function rgdelta() {
     rg --json -C 2 "$1" | delta
 }
+
+ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
