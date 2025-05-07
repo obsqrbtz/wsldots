@@ -1,0 +1,18 @@
+[user]
+  name = Daniel Dada 
+  email = doesdeos@gmail.com 
+[core] 
+  pager = delta
+[interactive]
+  diffFilter = delta --diff-so-fancy
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  line-numbers = true 
+  hyperlinks = true 
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+[diff] 
+  colorMoved = default
+[merge] 
+  conflictstyle = zdiff3
+[credential]
+	helper = store
