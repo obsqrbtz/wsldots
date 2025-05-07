@@ -15,6 +15,8 @@ export CMAKE_GENERATOR=Ninja
 export QTDIR=$HOME/Qt/6.8.3/gcc_64
 export PATH=$QTDIR/bin:$HOME/Qt/Tools/QtCreator/bin:$PATH
 export CMAKE_PREFIX_PATH=$QTDIR
+export SUDO_EDITOR="nvim"
+export EDITOR="nvim"
 
 alias cd="z"
 alias cat="bat"
@@ -26,4 +28,14 @@ function rgdelta() {
     rg --json -C 2 "$1" | delta
 }
 
-ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/
+WAYLAND_SRC="/mnt/wslg/runtime-dir/wayland-0*"
+DEFAULT_LINK_TARGET="/run/user/1000"
+FALLBACK_LINK_TARGET="/run/user/1001"
+
+if [ -d "$DEFAULT_LINK_TARGET" ]; then
+  ln -sf $WAYLAND_SRC "$DEFAULT_LINK_TARGET" 2>/dev/null
+elif [ -d "$FALLBACK_LINK_TARGET" ]; then
+  ln -sf $WAYLAND_SRC "$FALLBACK_LINK_TARGET" 2>/dev/null
+else
+  echo "Warning: Neither /run/user/1000 nor /run/user/1001 exists." >&2
+fi
