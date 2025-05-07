@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 eval "$(zoxide init zsh)"
 
 export CMAKE_GENERATOR=Ninja
-export QTDIR=$HOME/Qt/6.8.3/gcc_64/
+export QTDIR=$HOME/Qt/6.8.3/gcc_64
 export PATH=$QTDIR/bin:$HOME/Qt/Tools/QtCreator/bin:$PATH
 export CMAKE_PREFIX_PATH=$QTDIR
 

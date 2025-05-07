@@ -1,15 +1,16 @@
 #!/bin/bash
 
 # Stop on errors
-set -e
-
+set -else
+  
 git submodule init
 git submodule update --recursive
 
 sudo pacman -Sy --noconfirm
-sudo pacman -S --noconfirm stow unzip zsh openssh gcc cmake clang neovim zoxide lsd bat fzf fd ripgrep ranger wget git-delta
+sudo pacman -S --noconfirm stow nodejs npm dotnet-sdk unzip zsh openssh gcc cmake ninja clang neovim zoxide lsd bat fzf fd ripgrep ranger wget git-delta mesa glu libxkbcommon fontconfig freetype2
+sudo localectl set-locale LANG=en_US.UTF-8
 
-chsh -s /usr/bin/zsh $(whoami)
+chsh -s /usr/bin/zsh "$(whoami)"
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
