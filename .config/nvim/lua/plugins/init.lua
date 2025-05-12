@@ -44,8 +44,10 @@ return {
     dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
     config = function()
       require "configs.lspconfig"
+      require("nvchad.mason").install_all()
     end,
   },
+
 
   { import = "nvchad.blink.lazyspec" },
 
