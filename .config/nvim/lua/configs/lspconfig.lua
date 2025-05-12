@@ -1,6 +1,8 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+vim.lsp.config("*", {
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
+})
 
+require("mason").setup()
 require("mason-lspconfig").setup {
   ensure_installed = {
     "lua_ls",
@@ -15,24 +17,13 @@ require("mason-lspconfig").setup {
   },
 }
 
-local lspconfig = require "lspconfig"
-
--- Setup each installed server
-for _, server in ipairs(require("mason-lspconfig").get_installed_servers()) do
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-
-  if server == "rust_analyzer" then
-    opts.settings = {
-      ["rust-analyzer"] = {
-        cargo = { features = "all" },
-        check = { command = "clippy" },
-        interpret = { tests = true },
-      },
-    }
+local function setup_server(server)
+  local ok, opts = pcall(require, "configs.lsp.servers." .. server)
+  if ok then
+    vim.lsp.config(server, opts)
+  else
+    vim.notify("Could not load config for" + server)
   end
-
-  lspconfig[server].setup(opts)
 end
+
+setup_server "rust_analyzer"
