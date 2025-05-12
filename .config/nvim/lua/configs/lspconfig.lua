@@ -16,14 +16,3 @@ require("mason-lspconfig").setup {
     "bashls",
   },
 }
-
-local function setup_server(server)
-  local ok, opts = pcall(require, "configs.lsp.servers." .. server)
-  if ok then
-    vim.lsp.config(server, opts)
-  else
-    vim.notify("Could not load config for" + server)
-  end
-end
-
-setup_server "rust_analyzer"
